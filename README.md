@@ -1,59 +1,59 @@
-# Memos Python Implementation
+# 🚀 Memos Python Implementation
 
-Memos 的 Python 实现版本 - 一个开源、自托管的隐私优先笔记服务。
+Memos 的 Python 实现版本 - 一个开源、自托管的隐私优先笔记服务 📝
 
-## 项目简介
+## 📖 项目简介
 
 这是 Memos 项目的 Python 实现，基于 FastAPI 框架构建，提供了完整的笔记管理功能，包括用户认证、Markdown 支持、附件管理、标签系统等核心特性。
 
-## 核心功能
+## ✨ 核心功能
 
-### 用户管理
-- 用户注册与登录
-- JWT Token 认证
-- Personal Access Token (PAT) 管理
-- 用户角色系统（HOST/ADMIN/USER）
-- 用户个人资料管理
+### 👤 用户管理
+- ✅ 用户注册与登录
+- 🔐 JWT Token 认证
+- 🔑 Personal Access Token (PAT) 管理
+- 👑 用户角色系统（HOST/ADMIN/USER）
+- 📝 用户个人资料管理
 
-### Memo 管理
-- 创建、编辑、删除 Memo
-- Markdown 内容支持（使用 markdown-it-py）
-- 三种可见性级别：PUBLIC（公开）、PROTECTED（保护）、PRIVATE（私有）
-- 标签系统
-- 置顶功能
-- Memo 关联与引用
-- 反应系统（Reaction）
+### 📝 Memo 管理
+- ✏️ 创建、编辑、删除 Memo
+- 📄 Markdown 内容支持（使用 markdown-it-py）
+- 👁️ 三种可见性级别：PUBLIC（公开）、PROTECTED（保护）、PRIVATE（私有）
+- 🏷️ 标签系统
+- 📌 置顶功能
+- 🔗 Memo 关联与引用
+- 😊 反应系统（Reaction）
 
-### 附件管理
-- 文件上传与管理
-- 支持本地存储和 S3 存储
-- 附件与 Memo 关联
+### 📎 附件管理
+- 📤 文件上传与管理
+- 💾 支持本地存储和 S3 存储
+- 🔗 附件与 Memo 关联
 
-### 搜索功能
-- 全文搜索
-- 按标签、创建者、可见性过滤
+### 🔍 搜索功能
+- 🔎 全文搜索
+- 🎯 按标签、创建者、可见性过滤
 
-### 插件系统
-- **任务调度插件**：基于 APScheduler 的定时任务
-- **邮件插件**：SMTP 邮件发送，支持欢迎邮件、密码重置等
+### 🔌 插件系统
+- ⏰ **任务调度插件**：基于 APScheduler 的定时任务
+- 📧 **邮件插件**：SMTP 邮件发送，支持欢迎邮件、密码重置等
 
-### API 文档
-- 自动生成 OpenAPI 文档
-- Swagger UI 界面
-- ReDoc 文档
+### 📚 API 文档
+- 📖 自动生成 OpenAPI 文档
+- 🎨 Swagger UI 界面
+- 📄 ReDoc 文档
 
-## 技术栈
+## 🛠️ 技术栈
 
-- **Web 框架**：FastAPI 0.109.0
-- **数据库 ORM**：SQLAlchemy 2.0.25 (async)
-- **数据库支持**：SQLite (默认)、PostgreSQL、MySQL
-- **认证**：JWT (python-jose)、bcrypt 密码加密
-- **Markdown**：markdown-it-py 3.0.0
-- **任务调度**：APScheduler 3.10.4
-- **邮件**：smtplib
-- **ASGI 服务器**：Uvicorn
+- ⚡ **Web 框架**：FastAPI 0.109.0
+- 🗄️ **数据库 ORM**：SQLAlchemy 2.0.25 (async)
+- 🐘 **数据库支持**：SQLite (默认)、PostgreSQL、MySQL
+- 🔒 **认证**：JWT (python-jose)、bcrypt 密码加密
+- 📝 **Markdown**：markdown-it-py 3.0.0
+- ⏰ **任务调度**：APScheduler 3.10.4
+- 📧 **邮件**：smtplib
+- 🚀 **ASGI 服务器**：Uvicorn
 
-## 项目结构
+## 📁 项目结构
 
 ```
 memos-py/
@@ -95,9 +95,9 @@ memos-py/
 └── run.py                  # 应用启动脚本
 ```
 
-## 数据库模型
+## 🗄️ 数据库模型
 
-### User（用户）
+### 👤 User（用户）
 - `id` - 用户 ID
 - `username` - 用户名（唯一）
 - `email` - 邮箱（唯一）
@@ -109,7 +109,7 @@ memos-py/
 - `created_ts` - 创建时间
 - `updated_ts` - 更新时间
 
-### Memo（笔记）
+### 📝 Memo（笔记）
 - `id` - Memo ID
 - `uid` - 唯一标识符（UUID）
 - `creator_id` - 创建者 ID
@@ -121,7 +121,7 @@ memos-py/
 - `created_ts` - 创建时间
 - `updated_ts` - 更新时间
 
-### Attachment（附件）
+### 📎 Attachment（附件）
 - `id` - 附件 ID
 - `uid` - 唯一标识符（UUID）
 - `creator_id` - 创建者 ID
@@ -135,21 +135,21 @@ memos-py/
 - `created_ts` - 创建时间
 - `updated_ts` - 更新时间
 
-### Reaction（反应）
+### 😊 Reaction（反应）
 - `id` - 反应 ID
 - `creator_id` - 创建者 ID
 - `memo_id` - Memo ID
 - `reaction` - 反应内容（emoji）
 - `created_ts` - 创建时间
 
-### MemoRelation（笔记关联）
+### 🔗 MemoRelation（笔记关联）
 - `id` - 关联 ID
 - `memo_id` - Memo ID
 - `related_memo_id` - 关联的 Memo ID
 - `type` - 关联类型
 - `created_ts` - 创建时间
 
-### PersonalAccessToken（个人访问令牌）
+### 🔑 PersonalAccessToken（个人访问令牌）
 - `id` - Token ID
 - `user_id` - 用户 ID
 - `token` - Token 字符串
@@ -157,7 +157,7 @@ memos-py/
 - `issued_at` - 签发时间
 - `expires_at` - 过期时间
 
-### UserSetting（用户设置）
+### ⚙️ UserSetting（用户设置）
 - `id` - 设置 ID
 - `user_id` - 用户 ID
 - `key` - 设置键
@@ -165,7 +165,7 @@ memos-py/
 - `created_ts` - 创建时间
 - `updated_ts` - 更新时间
 
-### InstanceSetting（实例设置）
+### 🏢 InstanceSetting（实例设置）
 - `id` - 设置 ID
 - `key` - 设置键（唯一）
 - `value` - 设置值
@@ -173,23 +173,23 @@ memos-py/
 - `created_ts` - 创建时间
 - `updated_ts` - 更新时间
 
-## 快速开始
+## 🚀 快速开始
 
-### 环境要求
+### 📋 环境要求
 
-- Python 3.11+
-- pip
-- SQLite（默认）或 PostgreSQL/MySQL
+- 🐍 Python 3.11+
+- 📦 pip
+- 🗄️ SQLite（默认）或 PostgreSQL/MySQL
 
-### 安装步骤
+### 📦 安装步骤
 
-1. **克隆仓库**
+1. **克隆仓库** 📥
 ```bash
 git clone https://github.com/hero-tiger/memos-py.git
 cd memos-py
 ```
 
-2. **创建虚拟环境**
+2. **创建虚拟环境** 🐍
 ```bash
 python -m venv venv
 # Windows
@@ -198,30 +198,30 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-3. **安装依赖**
+3. **安装依赖** 📦
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **配置环境变量**
+4. **配置环境变量** ⚙️
 ```bash
 cp .env.example .env
 # 编辑 .env 文件，修改必要的配置
 ```
 
-5. **初始化数据库**
+5. **初始化数据库** 🗄️
 ```bash
 python scripts/init_db.py
 ```
 
-6. **启动应用**
+6. **启动应用** 🚀
 ```bash
 python run.py
 ```
 
-应用将在 `http://localhost:8081` 启动
+应用将在 `http://localhost:8081` 启动 ✨
 
-## 配置说明
+## ⚙️ 配置说明
 
 在项目根目录创建 `.env` 文件：
 
@@ -270,27 +270,27 @@ S3_SECRET_KEY=
 S3_ENDPOINT=
 ```
 
-## API 文档
+## 📚 API 文档
 
 启动应用后，访问以下地址查看 API 文档：
 
-- **Swagger UI**: http://localhost:8081/api/docs
-- **ReDoc**: http://localhost:8081/api/redoc
-- **OpenAPI JSON**: http://localhost:8081/api/openapi.json
+- 📖 **Swagger UI**: http://localhost:8081/api/docs
+- 📄 **ReDoc**: http://localhost:8081/api/redoc
+- 🔧 **OpenAPI JSON**: http://localhost:8081/api/openapi.json
 
-## API 端点
+## 🔌 API 端点
 
-### 认证
+### 🔐 认证
 - `POST /api/v1/auth/signup` - 用户注册
 - `POST /api/v1/auth/signin` - 用户登录
 
-### 用户
+### 👤 用户
 - `GET /api/v1/users/me` - 获取当前用户信息
 - `PATCH /api/v1/users/me` - 更新当前用户信息
 - `GET /api/v1/users` - 获取用户列表
 - `GET /api/v1/users/{user_id}` - 获取指定用户信息
 
-### Memo
+### 📝 Memo
 - `POST /api/v1/memos` - 创建 Memo
 - `GET /api/v1/memos` - 获取 Memo 列表（支持过滤）
 - `GET /api/v1/memos/{memo_id}` - 根据 ID 获取 Memo
@@ -298,22 +298,22 @@ S3_ENDPOINT=
 - `PATCH /api/v1/memos/{memo_id}` - 更新 Memo
 - `DELETE /api/v1/memos/{memo_id}` - 删除 Memo
 
-### Personal Access Token
+### 🔑 Personal Access Token
 - `POST /api/v1/tokens` - 创建 PAT
 - `GET /api/v1/tokens` - 获取用户的 PAT 列表
 - `DELETE /api/v1/tokens/{token_id}` - 删除 PAT
 
-### 附件
+### 📎 附件
 - `POST /api/v1/attachments` - 上传附件
 - `GET /api/v1/attachments/{attachment_id}` - 获取附件信息
 - `DELETE /api/v1/attachments/{attachment_id}` - 删除附件
 
-### 搜索
+### 🔍 搜索
 - `GET /api/v1/search` - 搜索 Memo
 
-## 使用示例
+## 💡 使用示例
 
-### 注册用户
+### ✅ 注册用户
 
 ```bash
 curl -X POST http://localhost:8081/api/v1/auth/signup \
@@ -325,7 +325,7 @@ curl -X POST http://localhost:8081/api/v1/auth/signup \
   }'
 ```
 
-### 登录
+### 🔐 登录
 
 ```bash
 curl -X POST "http://localhost:8081/api/v1/auth/signin?email=test@example.com&password=password123"
@@ -339,7 +339,7 @@ curl -X POST "http://localhost:8081/api/v1/auth/signin?email=test@example.com&pa
 }
 ```
 
-### 创建 Memo
+### ✏️ 创建 Memo
 
 ```bash
 curl -X POST http://localhost:8081/api/v1/memos \
@@ -353,14 +353,14 @@ curl -X POST http://localhost:8081/api/v1/memos \
   }'
 ```
 
-### 获取 Memo 列表
+### 📋 获取 Memo 列表
 
 ```bash
 curl -X GET "http://localhost:8081/api/v1/memos?tag=test&limit=10" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
 
-### 更新 Memo
+### 🔄 更新 Memo
 
 ```bash
 curl -X PATCH http://localhost:8081/api/v1/memos/1 \
@@ -372,7 +372,7 @@ curl -X PATCH http://localhost:8081/api/v1/memos/1 \
   }'
 ```
 
-### 创建 Personal Access Token
+### 🔑 创建 Personal Access Token
 
 ```bash
 curl -X POST http://localhost:8081/api/v1/tokens \
@@ -383,9 +383,9 @@ curl -X POST http://localhost:8081/api/v1/tokens \
   }'
 ```
 
-## 插件使用
+## 🔌 插件使用
 
-### 任务调度插件
+### ⏰ 任务调度插件
 
 ```python
 from app.plugins.scheduler import scheduler
@@ -408,7 +408,7 @@ scheduler.remove_job("daily_task")
 jobs = scheduler.list_jobs()
 ```
 
-### 邮件插件
+### 📧 邮件插件
 
 ```python
 from app.plugins.email import email_plugin
@@ -433,9 +433,9 @@ await email_plugin.send_password_reset_email(
 )
 ```
 
-## Docker 部署
+## 🐳 Docker 部署
 
-### 使用 Dockerfile
+### 📦 使用 Dockerfile
 
 ```bash
 # 构建镜像
@@ -449,7 +449,7 @@ docker run -d \
   memos-py
 ```
 
-### 使用 Docker Compose
+### 🐙 使用 Docker Compose
 
 ```bash
 # 启动服务
@@ -462,26 +462,26 @@ docker-compose logs -f
 docker-compose down
 ```
 
-## 生产环境部署
+## 🏭 生产环境部署
 
-### 安全建议
+### 🔒 安全建议
 
-1. **设置强密钥**：使用随机生成的强密钥作为 `SECRET_KEY`
-2. **禁用调试模式**：设置 `DEBUG=false`
-3. **使用 HTTPS**：配置反向代理（nginx、traefik）启用 SSL/TLS
-4. **数据库安全**：使用 PostgreSQL 或 MySQL 替代 SQLite
-5. **CORS 配置**：限制允许的源地址
-6. **定期备份**：定期备份数据库和附件
+1. 🔑 **设置强密钥**：使用随机生成的强密钥作为 `SECRET_KEY`
+2. 🚫 **禁用调试模式**：设置 `DEBUG=false`
+3. 🔐 **使用 HTTPS**：配置反向代理（nginx、traefik）启用 SSL/TLS
+4. 🗄️ **数据库安全**：使用 PostgreSQL 或 MySQL 替代 SQLite
+5. 🌐 **CORS 配置**：限制允许的源地址
+6. 💾 **定期备份**：定期备份数据库和附件
 
-### 性能优化
+### ⚡ 性能优化
 
-1. **使用生产级数据库**：PostgreSQL 或 MySQL
-2. **配置缓存**：使用 Redis 缓存热点数据
-3. **负载均衡**：使用多个应用实例
-4. **CDN**：使用 CDN 加速静态资源
-5. **数据库连接池**：优化数据库连接池配置
+1. 🐘 **使用生产级数据库**：PostgreSQL 或 MySQL
+2. 🚀 **配置缓存**：使用 Redis 缓存热点数据
+3. ⚖️ **负载均衡**：使用多个应用实例
+4. 🌍 **CDN**：使用 CDN 加速静态资源
+5. 🔧 **数据库连接池**：优化数据库连接池配置
 
-### 反向代理配置（Nginx）
+### 🌐 反向代理配置（Nginx）
 
 ```nginx
 server {
@@ -498,15 +498,15 @@ server {
 }
 ```
 
-## 开发
+## 💻 开发
 
-### 运行测试
+### 🧪 运行测试
 
 ```bash
 pytest
 ```
 
-### 代码格式化
+### 🎨 代码格式化
 
 ```bash
 # 使用 black 格式化代码
@@ -516,7 +516,7 @@ black app/
 isort app/
 ```
 
-### 代码检查
+### 🔍 代码检查
 
 ```bash
 # 使用 pylint 检查代码
@@ -526,31 +526,31 @@ pylint app/
 mypy app/
 ```
 
-## 数据库迁移
+## 🔄 数据库迁移
 
 项目使用 SQLAlchemy 的 Alembic 进行数据库迁移。
 
-### 创建迁移
+### 📝 创建迁移
 
 ```bash
 alembic revision --autogenerate -m "description"
 ```
 
-### 应用迁移
+### ⬆️ 应用迁移
 
 ```bash
 alembic upgrade head
 ```
 
-### 回滚迁移
+### ⬇️ 回滚迁移
 
 ```bash
 alembic downgrade -1
 ```
 
-## 常见问题
+## ❓ 常见问题
 
-### 如何重置数据库？
+### 🔄 如何重置数据库？
 
 删除数据库文件并重新初始化：
 
@@ -559,7 +559,7 @@ rm data/memos.db
 python scripts/init_db.py
 ```
 
-### 如何更改数据库为 PostgreSQL？
+### 🐘 如何更改数据库为 PostgreSQL？
 
 修改 `.env` 文件中的 `DATABASE_URL`：
 
@@ -567,7 +567,7 @@ python scripts/init_db.py
 DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/memos
 ```
 
-### 如何启用邮件功能？
+### 📧 如何启用邮件功能？
 
 在 `.env` 文件中配置 SMTP 相关参数：
 
@@ -581,31 +581,31 @@ SMTP_FROM_NAME=Memos
 SMTP_USE_TLS=true
 ```
 
-## 贡献指南
+## 🤝 贡献指南
 
 欢迎贡献！请遵循以下步骤：
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
+1. 🍴 Fork 本仓库
+2. 🌿 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. ✅ 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 🔀 开启 Pull Request
 
-## 许可证
+## 📄 许可证
 
 本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
 
-## 致谢
+## 🙏 致谢
 
 - [Memos](https://github.com/usememos/memos) - 原始项目
 - [FastAPI](https://fastapi.tiangolo.com/) - 现代 Web 框架
 - [SQLAlchemy](https://www.sqlalchemy.org/) - Python SQL 工具包和 ORM
 
-## 联系方式
+## 📞 联系方式
 
-- GitHub: [hero-tiger/memos-py](https://github.com/hero-tiger/memos-py)
-- Issues: [GitHub Issues](https://github.com/hero-tiger/memos-py/issues)
+- 🐙 GitHub: [hero-tiger/memos-py](https://github.com/hero-tiger/memos-py)
+- 🐛 Issues: [GitHub Issues](https://github.com/hero-tiger/memos-py/issues)
 
 ---
 
-**注意**：本项目是 Memos 的 Python 实现，旨在提供相同的功能体验，但使用 Python 技术栈构建。
+**注意**：本项目是 Memos 的 Python 实现，旨在提供相同的功能体验，但使用 Python 技术栈构建。🎉
